@@ -7,7 +7,7 @@ $grey-dark: #D4D4D4;
 
 //fonts here
 @font-face {
-  font-family: 'Yeseva One';
+  font-family: "Yeseva One";
   font-style: normal;
   font-weight: 400;
   src: url(../fonts/YesevaOne-Regular.woff);
@@ -89,7 +89,7 @@ body {
   &__number {
     color: $grn;
     text-decoration: none;
-    font-family: "Yeseva One";
+    font-family: $font-h;
     font-size: 26px;
     &:hover {
       border-bottom: 1px dashed $grn;
@@ -105,7 +105,7 @@ body {
   flex-direction: column;
   padding: 0 20px;
   &__hi {
-    font-family: "Yeseva One";
+    font-family: $font-h;
     font-size: 60px;
     color: $grey-light;
     @include animation_fade(1s);
@@ -113,7 +113,7 @@ body {
   }
   &__text {
     margin-top: 50px;
-    font-family: "Proxima Nova";
+    font-family: $font-p;
     font-size: 16px;
     color: $grey-dark;
     @include animation_fade(1.5s);
@@ -150,7 +150,8 @@ body {
 
   background-color: $grn;
   color: $bgr;
-  font-family: "Proxima Nova";
+  font-family: $font-p;
+  font-size: 16px;
   @include animation_btnsnap(2.5s);
   &__wrapper {
     display: flex;
