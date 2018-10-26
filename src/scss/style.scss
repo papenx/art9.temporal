@@ -1,0 +1,175 @@
+$font-h: Yeseva One;
+$font-p: Proxima Nova;
+$bgr: #101010;
+$grn: #CEFF00;
+$grey-light: #F6F6F6;
+$grey-dark: #D4D4D4;
+
+//fonts here
+@font-face {
+  font-family: 'Yeseva One';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/YesevaOne-Regular.woff);
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/ProximaNova.woff);
+}
+
+//normalization
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+h1, p {
+  font-weight: normal;
+}
+
+body, h1, p {
+  margin: 0;
+}
+
+body {
+  background-color: $bgr;
+}
+
+//animations
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes button-snap {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@mixin animation_btnsnap ($delay) {
+  transform: translateY(100%);
+  animation-name: button-snap;
+  animation-duration: 1.5s;
+  animation-delay: $delay;
+  animation-fill-mode: forwards;
+}
+
+@mixin animation_fade ($delay) {
+  opacity: 0;
+  animation-name: fade;
+  animation-duration: 1.5s;
+  animation-delay: $delay;
+  animation-fill-mode: forwards;
+}
+
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+}
+
+.header {
+  display: flex;
+  flex: 0 1 auto;
+  @include animation_fade(.5s);
+  padding: 100px 120px 0 120px;
+  justify-content: space-between;
+  align-items: center;
+  &__number {
+    color: $grn;
+    text-decoration: none;
+    font-family: "Yeseva One";
+    font-size: 26px;
+    &:hover {
+      border-bottom: 1px dashed $grn;
+    }
+  }
+}
+
+.main {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 20px;
+  &__hi {
+    font-family: "Yeseva One";
+    font-size: 60px;
+    color: $grey-light;
+    @include animation_fade(1s);
+
+  }
+  &__text {
+    margin-top: 50px;
+    font-family: "Proxima Nova";
+    font-size: 16px;
+    color: $grey-dark;
+    @include animation_fade(1.5s);
+    text-align: center;
+    line-height: 1.5rem;
+  }
+  &__links {
+    display: flex;
+    margin-top: 60px;
+    @include animation_fade(2s);
+    > a {
+      margin: 0 15px;
+      > img {
+        height: 20px;
+        opacity: 0.4;
+        transition: opacity .25s ease-in;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.call {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+
+  border-radius: 5px 5px 0 0;
+  height: 60px;
+  width: 100%;
+
+  background-color: $grn;
+  color: $bgr;
+  font-family: "Proxima Nova";
+  @include animation_btnsnap(2.5s);
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    text-decoration: none;
+  }
+}
+
+
+//media queries
+@media (max-width: 900px) {
+  .header {
+    display: none;
+  }
+}
+
+@media (min-width: 900px) {
+  .call__wrapper {
+    display: none;
+  }
+}
